@@ -9,9 +9,13 @@ import {LEADERS} from '../shared/leaders'
 export class LeaderService {
 
   constructor() { }
-  getLeader() :Leader[]{
+  getLeaders() :Leader[]{
     return LEADERS
   }
+  getLeader(id): Leader {
+    return LEADERS.filter((leader) => (leader.id ===id))[0];
+  }
+
   getFeaturedLeader():Leader{
 return  LEADERS.filter(leader => leader.featured)[0];
   }
