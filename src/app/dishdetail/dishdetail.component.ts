@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { Dish } from '../shared/dish'
 import { DishService } from '../service/dish.service';
 import { Params, ActivatedRoute } from '@angular/router';
@@ -39,11 +39,13 @@ export class DishdetailComponent implements OnInit {
   next: string;
   dish: Dish;
   date = new Date().toISOString();
+  url;
 
   constructor(private dishservice: DishService,
     private route: ActivatedRoute,
     private location: Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    @Inject('BaseURL') private baseURL
   ) {
     this.createForm()
   }
@@ -101,6 +103,8 @@ export class DishdetailComponent implements OnInit {
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.route.params.pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
       .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+
+      this.url = this.baseURL;
   }
 
   setPrevNext(dishId: string) {

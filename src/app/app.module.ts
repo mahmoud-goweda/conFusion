@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component'
 import {DishService} from './service/dish.service';
 import{PromotionsService} from './service/promotions.service'
 import{LeaderService} from './service/leader.service'
+import { HttpClientModule } from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -31,6 +32,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatSliderModule} from '@angular/material/slider';
+import { baseURL } from './shared/baseurl';
+
 
 
 
@@ -68,7 +71,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
 
 
 
@@ -78,9 +82,11 @@ import {MatSliderModule} from '@angular/material/slider';
     LoginComponent
 ],
   providers: [
+    {provide: 'BaseURL', useValue: baseURL},
     DishService,
     PromotionsService,
     LeaderService
+
 
   ],
   bootstrap: [AppComponent]
