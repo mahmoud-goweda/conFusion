@@ -1,9 +1,13 @@
 # ConFusion
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+#install angular cli
+1-download and install node.js .
+2-Type “ npm install –g @angular/cli “ on your triminal.
 
 ## Development server
-
+Open 'json-server' folder in your triminal and run this command 'json-server --watch db.json'
+to run json file data
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
